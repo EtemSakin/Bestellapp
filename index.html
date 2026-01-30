@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BestellApp</title>
+    <link
+      rel="shortcut icon"
+      href="./assets/icons/favicon.svg"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="./styles/basket.css" />
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./styles/fonts-and-headlines.css" />
+    <link rel="stylesheet" href="./styles/foodcards.css" />
+    <link rel="stylesheet" href="./styles/buttons.css" />
+    <link rel="stylesheet" href="./styles/responsiv.css" />
+  </head>
+
+  <body onload="init()">
+    <header class="header-global">
+      <div class="header-inner">
+        <a href="index.html" aria-label="Zur Startseite">
+          <img
+            class="logo-header"
+            src="./assets/icons/logo-bestellapp.svg"
+            alt="Etem's BurgerHaus Logo"
+          />
+        </a>
+
+        <nav>
+          <button class="burger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <section class="content-wrapper">
+        <div class="content">
+          <section class="hero">
+            <div class="hero-cover">
+              <div class="burger-logo">
+                <img
+                  class="burger-img"
+                  src="./assets/imgs/burger.png"
+                  alt="Burger"
+                />
+              </div>
+            </div>
+            <div class="headline-container">
+              <div
+                class="reviews hover-lift rating-on-wood"
+                onclick="toggleRating()"
+                role="button"
+                tabindex="0"
+                aria-pressed="false"
+                id="ratingBox"
+              >
+                <img
+                  id="ratingStar"
+                  src="./assets/icons/star.png"
+                  alt="Bewertung"
+                />
+                <p>
+                  <b id="ratingValue">4,1</b>
+                  <span>(<span id="ratingCount">317</span>)</span>
+                </p>
+              </div>
+            </div>
+          </section>
+          <section class="food-section">
+            <div class="subhead-container">
+              <div class="subhead-container-inner">
+                <img
+                  class="subhead-icon"
+                  src="./assets/icons/burgerka.png"
+                  alt="Burger"
+                />
+                <h2 class="subhead">Burger</h2>
+              </div>
+            </div>
+            <div class="menu-cards" id="menuCardsCakesSection"></div>
+          </section>
+          <section class="food-section">
+            <div class="subhead-container">
+              <div class="subhead-container-inner">
+                <img
+                  class="subhead-icon"
+                  src="./assets/icons/beilage.png"
+                  alt="burger"
+                />
+                <h2 class="subhead">Beilagen</h2>
+              </div>
+            </div>
+            <div class="menu-cards" id="menuCardsCheescakesSection"></div>
+          </section>
+          <section class="food-section">
+            <div class="subhead-container">
+              <div class="subhead-container-inner">
+                <img
+                  class="subhead-icon"
+                  src="./assets/icons/dessert.png"
+                  alt="burger"
+                />
+                <h2 class="subhead">Dessert</h2>
+              </div>
+            </div>
+            <div class="menu-cards" id="menuCardsDonutsSection"></div>
+          </section>
+          <div class="mens" id="menuCardsCupcakesSection"></div>
+        </div>
+        <section class="basket-wrapper" id="basketWrapper">
+          <div class="basket">
+            <div class="basket-close-header">
+              <h2>Warenkorb</h2>
+              <button
+                class="small-basket-button hover-lift"
+                onclick="showMobileBasket()"
+              >
+                ✕
+              </button>
+            </div>
+            <h2 class="desktop-basket-header">Warenkorb</h2>
+            <div class="basket-content" id="basketContent"></div>
+            <div class="basket-content" id="basketTotal"></div>
+            <dialog
+              class="dialog-mode"
+              id="dialogMode"
+              aria-labelledby="dialogTitel"
+              aria-describedby="dialogDescription"
+            >
+              <div class="dialog-mode-inner">
+                <header>
+                  <img
+                    class="dialog-img"
+                    src="./assets/icons/car-t.png"
+                    alt="Lieferauto"
+                  />
+                  <h2>Gute Wahl!</h2>
+                </header>
+                <section class="dialog-section">
+                  <p>Deine Bestellung macht sich gerade auf den Weg</p>
+                </section>
+                <footer class="footer-dialog">
+                  <button
+                    class="add-to-basket-button hover-lift"
+                    onclick="closeDialog()"
+                  >
+                    Schließen
+                  </button>
+                </footer>
+              </div>
+            </dialog>
+          </div>
+        </section>
+      </section>
+      <footer class="footer-global">
+        <p>© 2026 BestellApp</p>
+        <a href="#">Impressum</a>
+        <a href="#">Datenschutz und Cookies</a>
+      </footer>
+      <nav class="bottom-nav">
+        <button class="hover-lift">
+          <img src="./assets/icons/home.png" alt="Home icon" />
+        </button>
+        <button class="hover-lift">
+          <img src="./assets/icons/person.png" alt="Person icon" />
+        </button>
+        <button class="hover-lift">
+          <img src="./assets/icons/takeout-dining.png" alt="Takout dinning" />
+        </button>
+        <button onclick="showMobileBasket()" class="hover-lift">
+          <img src="./assets/icons/shopping-cart.png" alt="Schopping cart" />
+          <span class="d-none basket-art-amount" id="basketArtAmount"></span>
+        </button>
+      </nav>
+    </main>
+    <script src="./scripts/datenbank.js"></script>
+    <script src="./scripts/templates.js"></script>
+    <script src="./script.js"></script>
+  </body>
+</html>

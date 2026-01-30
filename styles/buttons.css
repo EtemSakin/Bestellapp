@@ -1,0 +1,106 @@
+.burger {
+  width: 40px;
+  height: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.burger span {
+  display: block;
+  height: 4px;
+  background: #ffffff;
+  border-radius: 4px;
+  transition:
+    background-color 0.35s ease,
+    transform 0.25s ease;
+}
+
+.burger:hover span {
+  background-color: #bc986a;
+}
+
+.burger:hover span:nth-child(1) {
+  transform: translateX(4px);
+}
+
+.burger:hover span:nth-child(3) {
+  transform: translateX(-4px);
+}
+
+.add-to-basket-button {
+  background-color: #895036b6;
+  padding: 14px;
+  border: 0;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  width: 100px;
+
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.add-to-basket-button:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+}
+
+.pressed-button {
+  border: 1px solid #ab916c23;
+  background-color: #f8f8f8;
+  padding: 14px;
+  border-radius: 8px;
+  color: #5a3a2e;
+  cursor: pointer;
+  width: 100px;
+}
+
+.buy-button {
+  background-color: #895036b6;
+  padding: 14px;
+  border: solid 0 #5a482e;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  font-size: 20px;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.small-basket-button {
+  width: 40px;
+  height: 40px;
+  border-radius: 6px;
+  border: 1px solid #ab916c23;
+  background-color: #f8f8f8;
+  color: #5a482e;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-family: "Times New Roman", Times, serif;
+  font-weight: 100;
+  transition: background-color 0.2s;
+}
+
+.trash-btn {
+  height: 40px;
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+.small-basket-button:hover {
+  background-color: #ab916c38;
+}
+
+.amount-display {
+  font-weight: bold;
+  min-width: 20px;
+  text-align: center;
+}

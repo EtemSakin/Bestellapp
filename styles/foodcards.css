@@ -1,0 +1,67 @@
+.menu-cards{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
+    padding-bottom: 20px;
+}
+
+.food-card {
+    height: 150px;
+    width: 85%;
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    padding: 10px;
+
+    background-image: url("../assets/icons/kassenbonopt.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    background-color: #33230d1e;
+    border-radius: 12px;
+    max-width: 1440px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+
+    position: relative;
+    overflow: hidden;
+}
+
+
+.food-card:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    background-color: #ab916c38;
+}
+
+.food-card-img{
+    width: 210px;
+    height: 190px;
+    object-fit: cover;
+    border-radius: 12px;
+    flex-shrink: 0;
+}
+
+.food-card-info{
+    display: flex;
+    justify-content: space-between;
+    flex-grow: 1;
+    overflow: hidden;
+    height: 100%;
+    gap: 15px;
+}
+
+.food-card-title-with-description{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+}
+
+.food-card-buttons{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+}
