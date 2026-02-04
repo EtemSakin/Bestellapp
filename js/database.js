@@ -1,10 +1,8 @@
+const deliveryFee = 4.99;
 const articles = [
-  /* =======================
-     BURGER (5)
-  ======================= */
   {
     title: "Etem Classic",
-    img: "./assets/imgs/aa.jpg",
+    img: "./assets/imgs/etemclassic.jpg",
     price: 13.9,
     category: "Burger",
     amount: 0,
@@ -43,9 +41,6 @@ const articles = [
     description: "Doppeltes Rindfleisch, doppelter Käse, karamellisierte Zwiebeln."
   },
 
-  /* =======================
-     BEILAGEN (5)
-  ======================= */
   {
     title: "House Fries",
     img: "./assets/imgs/housefries.png",
@@ -87,9 +82,6 @@ const articles = [
     description: "Nachos mit geschmolzenem Käse, Salsa und Jalapeños."
   },
 
-  /* =======================
-     DESSERT (5)
-  ======================= */
   {
     title: "Choco Brownie",
     img: "./assets/imgs/chocobrownie.png",
