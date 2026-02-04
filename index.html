@@ -3,184 +3,304 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>BestellApp</title>
-    <link
-      rel="shortcut icon"
-      href="./assets/icons/favicon.svg"
-      type="image/x-icon"
-    />
-    <link rel="stylesheet" href="./styles/basket.css" />
-    <link rel="stylesheet" href="./style.css" />
-    <link rel="stylesheet" href="./styles/fonts-and-headlines.css" />
-    <link rel="stylesheet" href="./styles/foodcards.css" />
-    <link rel="stylesheet" href="./styles/buttons.css" />
-    <link rel="stylesheet" href="./styles/responsiv.css" />
+    <title>Etem's BurgerHaus – BestellApp</title>
+
+    <link rel="shortcut icon" href="./assets/imgs/burgerhero.png" type="image/x-icon" />
+    
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/basket.css" />
+    <link rel="stylesheet" href="./css/font.css" />
+    <link rel="stylesheet" href="./css/headlings.css" />
+    <link rel="stylesheet" href="./css/foodcards.css" />
+    <link rel="stylesheet" href="./css/buttons.css" />
+    <link rel="stylesheet" href="./css/responsive.css" />
   </head>
 
-  <body onload="init()">
-    <header class="header-global">
-      <div class="header-inner">
-        <a href="index.html" aria-label="Zur Startseite">
+  <body onload="renderNotes()">
+    <a class="skiplink" href="#mainContent">Zum Inhalt springen</a>
+
+    <!-- TOPBAR -->
+    <header class="topbar">
+      <div class="topbar__inner">
+        <a class="brand" href="index.html" aria-label="Zur Startseite">
           <img
-            class="logo-header"
-            src="./assets/icons/logo-bestellapp.svg"
+            class="brand__logo"
+            src="./assets/imgs/burgerhero.png"
             alt="Etem's BurgerHaus Logo"
           />
         </a>
 
-        <nav>
-          <button class="burger">
-            <span></span>
-            <span></span>
-            <span></span>
+        <div class="topbar__actions">
+          <div class="quicksearch" role="search" aria-label="Suche">
+            <label class="sr-only" for="searchInput">Suche</label>
+            <input
+              id="searchInput"
+              class="quicksearch__input"
+              type="text"
+              placeholder="Suche Burger, Beilagen, Dessert…"
+              autocomplete="off"
+            />
+          </div>
+
+          <!-- Hamburger öffnet Modal -->
+          <button
+            class="navtoggle hover-lift"
+            type="button"
+            aria-label="Menü öffnen"
+            onclick="openAccountModal()"
+          >
+            ☰
           </button>
-        </nav>
+        </div>
       </div>
     </header>
-    <main>
-      <section class="content-wrapper">
-        <div class="content">
-          <section class="hero">
-            <div class="hero-cover">
-              <div class="burger-logo">
-                <img
-                  class="burger-img"
-                  src="./assets/imgs/burger.png"
-                  alt="Burger"
-                />
+
+    <!-- PAGE -->
+    <main class="page" id="mainContent">
+      <section class="layout">
+        <!-- LEFT: CONTENT -->
+        <div class="mainarea">
+          <!-- HERO -->
+          <section class="heroX" aria-label="Restaurantbereich">
+            <div class="heroX__cover" aria-label="Hero Cover">
+              <div class="heroX__badgeRow" aria-label="Kurzinfos">
+                <span class="badgeX">⏱ 25–35 Min</span>
+                <span class="badgeX">🚚 Lieferung</span>
+                <span class="badgeX">🔥 Frisch gegrillt</span>
               </div>
             </div>
-            <div class="headline-container">
-              <div
-                class="reviews hover-lift rating-on-wood"
-                onclick="toggleRating()"
-                role="button"
-                tabindex="0"
-                aria-pressed="false"
-                id="ratingBox"
-              >
-                <img
-                  id="ratingStar"
-                  src="./assets/icons/star.png"
-                  alt="Bewertung"
-                />
-                <p>
-                  <b id="ratingValue">4,1</b>
-                  <span>(<span id="ratingCount">317</span>)</span>
-                </p>
+
+            <!-- Restaurant Header -->
+            <section class="restaurantHead" aria-label="Restaurant Header">
+              <div class="restaurantHead__inner">
+                <div class="restaurantHead__info">
+                  <h1 class="restaurantHead__title">Etem’s BurgerHaus</h1>
+
+                  <div class="restaurantHead__indicators" aria-label="Restaurant Infos">
+                    <!-- Rating -->
+                    <button
+                      class="rIndicator rIndicator--rating hover-lift"
+                      type="button"
+                      onclick="toggleRating()"
+                      id="ratingBox"
+                      aria-pressed="false"
+                      title="Bewertung"
+                    >
+                      <img
+                        id="ratingStar"
+                        class="rIndicator__icon"
+                        src="./assets/icons/star.png"
+                        alt=""
+                        aria-hidden="true"
+                      />
+                      <span class="rIndicator__text">
+                        <b id="ratingValue">4,1</b>
+                        <span>(<span id="ratingCount">317</span>)</span>
+                      </span>
+                    </button>
+
+                    <!-- Mindestbestellwert -->
+                    <div class="rIndicator">
+                      <span class="rIndicator__emoji">🛍️</span>
+                      <span class="rIndicator__text">Min. <b>11,00€</b></span>
+                    </div>
+
+                    <!-- Lieferkosten -->
+                    <div class="rIndicator">
+                      <span class="rIndicator__emoji">🚲</span>
+                      <span class="rIndicator__text"><b>4,90€</b></span>
+                    </div>
+                  </div>
+                </div>
+                    <!-- Unsere Infos -->
+                <div class="restaurantHead__actions">
+                  <button class="actionBtn hover-lift" type="button">
+                    <span class="actionBtn__icon">ℹ️</span>
+                    <span class="actionBtn__text">Über uns</span>
+                  </button>
+
+                  <button class="actionBtn actionBtn--icon hover-lift" type="button" title="Menü">
+                    ☰
+                  </button>
+                </div>
+              </div>
+            </section>
+
+            <!-- Headline -->
+            <div class="headlineX" aria-label="Restaurant Headline">
+              <div class="headlineX__copy">
+                <h2 class="headlineX__title">Burgerfraktur</h2>
+                <p class="headlineX__subtitle">Das beste und saftigste Fleisch!</p>
               </div>
             </div>
+
+            <!-- Kategorie-Schnellwahl -->
+            <nav class="catnav" aria-label="Kategorien">
+              <a class="catnav__item hover-lift" href="#cat-burger">
+                <img class="catnav__icon" src="./assets/icons/burgerka.png" alt="" aria-hidden="true" />
+                <span>Burger</span>
+              </a>
+              <a class="catnav__item hover-lift" href="#cat-beilagen">
+                <img class="catnav__icon" src="./assets/icons/beilage.png" alt="" aria-hidden="true" />
+                <span>Beilagen</span>
+              </a>
+              <a class="catnav__item hover-lift" href="#cat-dessert">
+                <img class="catnav__icon" src="./assets/icons/dessert.png" alt="" aria-hidden="true" />
+                <span>Dessert</span>
+              </a>
+            </nav>
           </section>
-          <section class="food-section">
-            <div class="subhead-container">
-              <div class="subhead-container-inner">
-                <img
-                  class="subhead-icon"
-                  src="./assets/icons/burgerka.png"
-                  alt="Burger"
-                />
-                <h2 class="subhead">Burger</h2>
-              </div>
-            </div>
-            <div class="menu-cards" id="menuCardsCakesSection"></div>
+
+          <!-- MENU Speisekarte -->
+          <section class="menuX" aria-label="Speisekarte">
+            <section class="menuX__section" id="cat-burger" aria-label="Burger">
+              <header class="sectionheadX">
+                <div class="sectionheadX__left">
+                  <img class="sectionheadX__icon" src="./assets/icons/burgerka.png" alt="Burger" />
+                  <h2 class="sectionheadX__title">Burger</h2>
+                </div>
+              </header>
+              <div class="cardsX" id="menuCardsBurgerSection"></div>
+            </section>
+
+            <section class="menuX__section" id="cat-beilagen" aria-label="Beilagen">
+              <header class="sectionheadX">
+                <div class="sectionheadX__left">
+                  <img class="sectionheadX__icon" src="./assets/icons/beilage.png" alt="Beilagen" />
+                  <h2 class="sectionheadX__title">Beilagen</h2>
+                </div>
+              </header>
+              <div class="cardsX" id="menuCardsBeilagenSection"></div>
+            </section>
+
+            <section class="menuX__section" id="cat-dessert" aria-label="Dessert">
+              <header class="sectionheadX">
+                <div class="sectionheadX__left">
+                  <img class="sectionheadX__icon" src="./assets/icons/dessert.png" alt="Dessert" />
+                  <h2 class="sectionheadX__title">Dessert</h2>
+                </div>
+              </header>
+              <div class="cardsX" id="menuCardsDessertSection"></div>
+            </section>
           </section>
-          <section class="food-section">
-            <div class="subhead-container">
-              <div class="subhead-container-inner">
-                <img
-                  class="subhead-icon"
-                  src="./assets/icons/beilage.png"
-                  alt="burger"
-                />
-                <h2 class="subhead">Beilagen</h2>
-              </div>
-            </div>
-            <div class="menu-cards" id="menuCardsCheescakesSection"></div>
-          </section>
-          <section class="food-section">
-            <div class="subhead-container">
-              <div class="subhead-container-inner">
-                <img
-                  class="subhead-icon"
-                  src="./assets/icons/dessert.png"
-                  alt="burger"
-                />
-                <h2 class="subhead">Dessert</h2>
-              </div>
-            </div>
-            <div class="menu-cards" id="menuCardsDonutsSection"></div>
-          </section>
-          <div class="mens" id="menuCardsCupcakesSection"></div>
         </div>
-        <section class="basket-wrapper" id="basketWrapper">
-          <div class="basket">
-            <div class="basket-close-header">
-              <h2>Warenkorb</h2>
-              <button
-                class="small-basket-button hover-lift"
-                onclick="showMobileBasket()"
+
+        <!-- Warenkorb rechts -->
+        <aside class="asideCart" aria-label="Warenkorb">
+          <section class="basket-wrapper" id="basketWrapper">
+            <div class="basket">
+              <div class="basket-close-header">
+                <h2>Warenkorb</h2>
+                <button
+                  class="small-basket-button hover-lift"
+                  onclick="showMobileBasket()"
+                  type="button"
+                  aria-label="Warenkorb schließen"
+                >
+                  ✕
+                </button>
+              </div>
+
+              <h2 class="desktop-basket-header">Warenkorb</h2>
+
+              <div class="basket-content" id="basketContent"></div>
+              <div class="basket-content" id="basketTotal"></div>
+
+              <dialog
+                class="dialog-mode"
+                id="dialogMode"
+                aria-labelledby="dialogTitel"
+                aria-describedby="dialogDescription"
               >
-                ✕
+                <div class="dialog-mode-inner">
+                  <header>
+                    <img class="dialog-img" src="./assets/icons/lieferwagen.png" alt="lieferwagen" />
+                    <h2 id="dialogTitel">Whuush!</h2>
+                  </header>
+
+                  <section class="dialog-section" id="dialogDescription">
+                    <p>Deine Bestellung wird geliefert.</p>
+                  </section>
+
+                  <footer class="footer-dialog">
+                    <button class="add-to-basket-button hover-lift" onclick="closeDialog()" type="button">
+                      Schließen
+                    </button>
+                  </footer>
+                </div>
+              </dialog>
+            </div>
+          </section>
+        </aside>
+      </section>
+
+      <!-- FOOTER -->
+      <footer class="sitefoot" aria-label="Footer">
+        <div class="sitefoot__inner">
+          <p class="sitefoot__copy">© 2026 Etem's BurgerHaus</p>
+          <nav class="sitefoot__links" aria-label="Rechtliches">
+            <a href="#" class="sitefoot__link">Impressum</a>
+            <a href="#" class="sitefoot__link">Cookie Einstellungen</a>
+          </nav>
+        </div>
+      </footer>
+
+      <!-- Mobile Order Bar -->
+      <section class="orderbar" aria-label="Bestell-Leiste">
+        <div class="orderbar__inner">
+          <button class="orderbar__menu hover-lift" type="button" onclick="scrollToMenu()" aria-label="Zum Menü">
+            Menü
+          </button>
+
+          <button class="orderbar__cart hover-lift" type="button" onclick="showMobileBasket()" aria-label="Warenkorb ansehen">
+            <span class="orderbar__cartText">
+              <span class="orderbar__cartTitle">Warenkorb ansehen</span>
+              <span class="orderbar__cartPrice" id="orderbarTotal">0,00€</span>
+            </span>
+            <span class="orderbar__badge d-none" id="orderbarBadge">0</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- Account/Menu Modal -->
+      <dialog class="accountModal" id="accountModal" aria-labelledby="accountTitle">
+        <div class="accountModal__inner">
+          <header class="accountModal__header">
+            <h2 id="accountTitle">Mein Menü</h2>
+            <button class="accountModal__close hover-lift" type="button" onclick="closeAccountModal()" aria-label="Schließen">
+              ✕
+            </button>
+          </header>
+
+          <section class="accountModal__hero">
+            <div class="accountModal__heroText">
+              <h3>Hol dir mehr Vorteile</h3>
+              <ul>
+                <li>Angebote & Rabatte</li>
+                <li>Schneller bestellen</li>
+                <li>Bestellungen im Blick</li>
+              </ul>
+              <button class="accountModal__cta hover-lift" type="button">
+                Anmelden oder registrieren
               </button>
             </div>
-            <h2 class="desktop-basket-header">Warenkorb</h2>
-            <div class="basket-content" id="basketContent"></div>
-            <div class="basket-content" id="basketTotal"></div>
-            <dialog
-              class="dialog-mode"
-              id="dialogMode"
-              aria-labelledby="dialogTitel"
-              aria-describedby="dialogDescription"
-            >
-              <div class="dialog-mode-inner">
-                <header>
-                  <img
-                    class="dialog-img"
-                    src="./assets/icons/car-t.png"
-                    alt="Lieferauto"
-                  />
-                  <h2>Gute Wahl!</h2>
-                </header>
-                <section class="dialog-section">
-                  <p>Deine Bestellung macht sich gerade auf den Weg</p>
-                </section>
-                <footer class="footer-dialog">
-                  <button
-                    class="add-to-basket-button hover-lift"
-                    onclick="closeDialog()"
-                  >
-                    Schließen
-                  </button>
-                </footer>
-              </div>
-            </dialog>
-          </div>
-        </section>
-      </section>
-      <footer class="footer-global">
-        <p>© 2026 BestellApp</p>
-        <a href="#">Impressum</a>
-        <a href="#">Datenschutz</a>
-        <a href="#">Cookies</a>
-      </footer>
-      <nav class="bottom-nav">
-        <button class="hover-lift">
-          <img src="./assets/icons/home.png" alt="Home icon" />
-        </button>
-        <button class="hover-lift">
-          <img src="./assets/icons/person.png" alt="Person icon" />
-        </button>
-        <button class="hover-lift">
-          <img src="./assets/icons/takeout-dining.png" alt="Takout dinning" />
-        </button>
-        <button onclick="showMobileBasket()" class="hover-lift">
-          <img src="./assets/icons/shopping-cart.png" alt="Schopping cart" />
-          <span class="d-none basket-art-amount" id="basketArtAmount"></span>
-        </button>
-      </nav>
+          </section>
+
+          <nav class="accountModal__nav" aria-label="Menülinks">
+            <button class="accountNavItem hover-lift" type="button">Bestellungen</button>
+            <button class="accountNavItem hover-lift" type="button">Vorteile</button>
+            <button class="accountNavItem hover-lift" type="button">Stempelkarten</button>
+            <button class="accountNavItem hover-lift" type="button">Brauchst du Hilfe?</button>
+            <button class="accountNavItem hover-lift" type="button">Geschenkkarten</button>
+            <hr class="accountModal__sep" />
+            <button class="accountNavItem hover-lift" type="button">Partner werden</button>
+          </nav>
+        </div>
+      </dialog>
     </main>
-    <script src="./scripts/datenbank.js"></script>
-    <script src="./scripts/templates.js"></script>
-    <script src="./script.js"></script>
+
+    <script src="./js/database.js"></script>
+    <script src="./js/templates.js"></script>
+    <script src="./js/script.js"></script>
   </body>
 </html>
