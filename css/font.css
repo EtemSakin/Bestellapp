@@ -1,0 +1,13 @@
+@font-face {
+  font-family: "Palanquin";
+  src: url("./assets/fonts/Palanquin/Palanquin-Medium.ttf");
+  font-weight: 500;
+  font-style: normal;
+}
+
+body {
+  font-family: "Palanquin", Arial, sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  color: #000;
+}
