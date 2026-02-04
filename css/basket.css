@@ -1,34 +1,36 @@
 .basket-wrapper {
-  width: 350px;
-  flex-shrink: 0;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  width: 100%;
 }
 
 .basket {
-  position: sticky;
-  top: 0;
-  padding: 30px;
-  display: flex;
-  flex-direction: column;
-  gap: 0;
+  padding: 16px;
 }
 
-.basket-content{
-  overflow-y: auto;
-  max-height: 50vh;
+.desktop-basket-header {
+  font-size: 28px;
+  margin-bottom: 14px;
+  text-align: center;
+}
+
+.basket-content {
   display: flex;
   flex-direction: column;
+  gap: 12px;
 }
 
 .basket-empty {
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   align-items: center;
-  gap: 50px;
+  justify-content: center;
+  text-align: center;
+  gap: 14px;
+  padding: 30px 10px;
+  opacity: 0.85;
 }
 
 .basket-empty-img {
-  height: 120px;
+  width: 110px;
 }
 
 .basket-articles {
@@ -37,71 +39,86 @@
   flex-direction: column;
   padding: 10px;
   margin-bottom: 10px;
+
   background-image: url("../assets/icons/kassenbonopt.png");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
   border-radius: 12px;
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
-  box-sizing: border-box;
 }
 
-.amountbtns-price {
+.basket-row {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.basket-title {
+  font-size: 16px;
+}
+
+.basket-subtotal {
+  font-weight: 700;
 }
 
 .buttons {
   display: flex;
   align-items: center;
-  justify-content: center;
   gap: 10px;
 }
 
-.basket-total {
-  margin-top: 40px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+.amount-display {
+  min-width: 18px;
+  text-align: center;
+  font-weight: 700;
 }
 
-.cost{
-  margin-bottom: 20px;
+.trash-btn {
+  border: none;
+  background: transparent;
+  padding: 8px;
+  border-radius: 10px;
+}
+
+.trash-btn img {
+  width: 18px;
+  height: 18px;
+}
+
+.cost {
+  margin-top: 14px;
+  padding: 12px;
+  border-radius: 14px;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.06);
 }
 
 .cost-category {
   display: flex;
   justify-content: space-between;
+  padding: 6px 0;
 }
 
-.total-cost{
+.total-cost {
   display: flex;
   justify-content: space-between;
-}
-
-.basket-art-amount {
-  position: absolute;
-  top: 0;
-  right: 0;
-  font-size: 12px;
-  border-radius: 50%;
-  border: 1px solid #3333333b;
-  background-color: #5a3a2e;
-  color: white;
-  font-weight: 700;
-  width: 25px;
-  height: 25px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transform: translate(50%, -50%);
-}
-
-.d-none {
-  display: none;
+  padding: 12px 4px;
+  font-size: 18px;
 }
 
 .basket-close-header {
+  display: none;
+  padding: 12px 10px;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  background: #fff;
+}
+
+/* helper */
+.d-none {
   display: none;
 }
